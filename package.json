@@ -1,10 +1,12 @@
 {
-  "name": "TodoList",
+  "name": "todolist",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A todo list app in JavaScript",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . && stylelint '**/*.{css,scss}'",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -24,6 +26,8 @@
     "stylelint": "^13.3.3",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-csstree-validator": "^1.8.0",
-    "stylelint-scss": "^3.17.2"
+    "stylelint-scss": "^3.17.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
   }
 }
