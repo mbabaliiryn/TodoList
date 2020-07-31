@@ -1,13 +1,21 @@
-const newProjectInstance = (todo_array) => {
+const newProjectInstance = (todos) => {
+  todos = todos || [];
 
-  const printItems = () => {
-    todo_array.forEach(todo => {
-      console.log(todo.getTitle());
+  const addTodo = (todoInstance) => {
+    todos.push(todoInstance);
+  };
+
+  const getTodoTitles = () => {
+    const titles = [];
+    todos.forEach(todo => {
+      titles.push(todo.title);
     });
+    return titles;
   };
 
   return {
-    printItems,
+    addTodo,
+    getTodoTitles,
   };
 };
 
