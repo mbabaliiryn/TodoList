@@ -1,9 +1,12 @@
-const newProjectInstance = (todos) => {
+const newProjectInstance = (title = 'Miscellaneous Todos', todos) => {
   todos = todos || [];
 
   const addTodo = (todoInstance) => {
     todos.push(todoInstance);
   };
+
+  const getTitle = () => title;
+  const getTodos = () => todos;
 
   const getTodoTitles = () => {
     const titles = [];
@@ -14,6 +17,8 @@ const newProjectInstance = (todos) => {
   };
 
   return {
+    getTodos,
+    getTitle,
     addTodo,
     getTodoTitles,
   };

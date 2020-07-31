@@ -26,7 +26,7 @@ const getTodoForm = (formAction) => {
       notes: todoForm.elements.notes.value,
       checklist: [],
     };
-    console.log(todoProps);
+    formAction(todoProps);
   });
 
   return todoForm;
