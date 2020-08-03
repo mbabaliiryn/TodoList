@@ -1,4 +1,4 @@
-import './style.css';
+import './style.scss';
 import todoFactory from './todo_factory';
 import projectFactory from './project_factory';
 import getNewTodoForm from './form_builder/todo_form';

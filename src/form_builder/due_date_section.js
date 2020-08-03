@@ -1,7 +1,7 @@
 const dueDateSection = document.createElement('section');
 const dueDateLabel = document.createElement('label');
 dueDateLabel.htmlFor = 'todo-duedate-input';
-dueDateLabel.textContent = 'Due on';
+dueDateLabel.textContent = 'Due on:';
 const dueDateInput = document.createElement('input');
 dueDateInput.id = 'todo-duedate-input';
 dueDateInput.type = 'date';

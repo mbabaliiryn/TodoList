@@ -1,0 +1,38 @@
+
+#new-todo {
+    font-size: 1.5rem;
+    color: rgb(157, 16, 212);
+    margin-left: 10px;
+  }
+  
+  #todo-title-input {
+    margin-bottom: 10px;
+  }
+  
+  #todo-desc-input {
+    margin-bottom: 10px;
+  }
+  
+  #todo-duedate-input {
+    margin-bottom: 10px;
+  }
+  
+  fieldset {
+    width: 30%;
+    margin: 0 auto;
+  }
+  
+  legend {
+    text-align: center;
+  }
+  
+  textarea {
+    margin-top: 30px;
+  }
+
+input[type="submit"] {
+    font-size: 1.3rem;
+    background-color: green;
+    border: none;
+    color: brown;
+  }

@@ -1,7 +1,7 @@
 const notesSection = document.createElement('section');
 const notesLabel = document.createElement('label');
 notesLabel.htmlFor = 'todo-notes-input';
-notesLabel.textContent = 'Notes';
+notesLabel.textContent = 'Notes:';
 const notesInput = document.createElement('textarea');
 notesInput.id = 'todo-notes-input';
 notesInput.name = 'notes';
