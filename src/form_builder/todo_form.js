@@ -18,7 +18,7 @@ const getTodoForm = (formAction) => {
 
   todoForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    const todoProps = {
+    const todoFormInputs = {
       title: todoForm.elements.title.value,
       description: todoForm.elements.description.value,
       duedate: todoForm.elements.duedate.value,
@@ -26,7 +26,8 @@ const getTodoForm = (formAction) => {
       notes: todoForm.elements.notes.value,
       checklist: [],
     };
-    formAction(todoProps);
+    formAction(todoFormInputs);
+    todoForm.reset();
   });
 
   return todoForm;

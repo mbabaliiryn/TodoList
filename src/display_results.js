@@ -1,5 +1,6 @@
 const getResultsSection = (projects) => {
   const listOfProjects = document.createElement('ul');
+  listOfProjects.id = 'results';
   projects.forEach(project => {
     const pItem = document.createElement('li');
     listOfProjects.appendChild(pItem);

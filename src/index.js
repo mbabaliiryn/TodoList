@@ -18,13 +18,16 @@ const currentProject = defaultProject;
 
 // Temporary to display added todos and projects
 const displaySection = document.createElement('section');
-const heading = document.createElement('p');
-heading.style.fontWeight = 'bold';
+const heading = document.createElement('h3');
 heading.textContent = 'Projects and Todos';
 displaySection.appendChild(heading);
 
 const renderResults = () => {
-  const resultsSection = getResults(projects);
+  let resultsSection = document.getElementById('results');
+  if (resultsSection !== null) {
+    resultsSection.remove();
+  }
+  resultsSection = getResults(projects);
   displaySection.appendChild(resultsSection);
 };
 
@@ -42,6 +45,7 @@ const addNewTodoToProject = ({
 };
 
 const formSection = document.createElement('section');
+formSection.id = 'form-section';
 const todoForm = getNewTodoForm(addNewTodoToProject);
 formSection.appendChild(todoForm);
 
