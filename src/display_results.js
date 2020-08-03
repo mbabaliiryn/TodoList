@@ -1,3 +1,6 @@
+/*
+  temporary method to display lists of projects and todos
+*/
 const getResultsSection = (projects) => {
   const listOfProjects = document.createElement('ul');
   listOfProjects.id = 'results';
@@ -17,10 +20,5 @@ const getResultsSection = (projects) => {
   });
   return listOfProjects;
 };
-
-
-// const projectsTag = document.createElement('ul');
-// projects.forEach
-
 
 export default getResultsSection;

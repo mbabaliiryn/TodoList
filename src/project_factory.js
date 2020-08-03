@@ -1,4 +1,4 @@
-const newProjectInstance = (title = 'Miscellaneous Todos', todos) => {
+const newProjectInstance = (title, projectId, todos) => {
   todos = todos || [];
 
   const addTodo = (todoInstance) => {
@@ -6,6 +6,7 @@ const newProjectInstance = (title = 'Miscellaneous Todos', todos) => {
   };
 
   const getTitle = () => title;
+  const getId = () => projectId;
   const getTodos = () => todos;
 
   const getTodoTitles = () => {
@@ -17,8 +18,9 @@ const newProjectInstance = (title = 'Miscellaneous Todos', todos) => {
   };
 
   return {
-    getTodos,
     getTitle,
+    getId,
+    getTodos,
     addTodo,
     getTodoTitles,
   };

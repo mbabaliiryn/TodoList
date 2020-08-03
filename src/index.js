@@ -1,20 +1,19 @@
-import './style.scss';
+import './styles/style.scss';
 import todoFactory from './todo_factory';
 import projectFactory from './project_factory';
 import getNewTodoForm from './form_builder/todo_form';
 import getResults from './display_results';
+import { getAppData, storeAppData } from './data';
 
 const contentTag = document.getElementById('content');
 const h1 = document.createElement('h1');
 h1.textContent = 'ToDo List App';
 contentTag.appendChild(h1);
 
-const projects = [];
-const defaultProject = projectFactory();
-projects.push(defaultProject);
+const appLibrary = getAppData();
 
 // allow switching between project (const -> let)
-const currentProject = defaultProject;
+const currentProject = appLibrary.defaultProject;
 
 // Temporary to display added todos and projects
 const displaySection = document.createElement('section');
@@ -27,7 +26,8 @@ const renderResults = () => {
   if (resultsSection !== null) {
     resultsSection.remove();
   }
-  resultsSection = getResults(projects);
+  const allProjects = [appLibrary.defaultProject].concat(appLibrary.otherProjects);
+  resultsSection = getResults(allProjects);
   displaySection.appendChild(resultsSection);
 };
 
@@ -41,6 +41,7 @@ const addNewTodoToProject = ({
 }, project = currentProject) => {
   const newTodo = todoFactory(title, description, duedate, priority, notes, checklist);
   project.addTodo(newTodo);
+
   renderResults();
 };
 
