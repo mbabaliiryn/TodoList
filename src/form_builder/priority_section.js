@@ -15,5 +15,6 @@ priorityListValues.forEach((pVal) => {
   prioritySection.appendChild(priorityInput);
   prioritySection.appendChild(priorityLabel);
 });
+prioritySection.querySelector('#todo-medium-priority').checked = true;
 
 export default prioritySection;
