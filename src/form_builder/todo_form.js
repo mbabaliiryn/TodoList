@@ -5,7 +5,7 @@ import priorityInput from './priority_section';
 import notesInput from './notes_section';
 import submitButton from './submit_section';
 
-const getTodoForm = (formAction) => {
+const getTodoForm = (formAction, projectId) => {
   const todoForm = document.createElement('form');
   todoForm.id = 'new-todo';
 
@@ -16,6 +16,14 @@ const getTodoForm = (formAction) => {
   todoForm.appendChild(notesInput);
   todoForm.appendChild(submitButton);
 
+  const projectIdInput = document.createElement('input');
+  projectIdInput.type = 'hidden';
+  projectIdInput.id = 'todo-pid-input';
+  projectIdInput.name = 'projectid';
+  projectIdInput.value = Number(projectId).toString();
+
+  todoForm.appendChild(projectIdInput);
+
   todoForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const todoFormInputs = {
@@ -24,6 +32,7 @@ const getTodoForm = (formAction) => {
       duedate: todoForm.elements.duedate.value,
       priority: todoForm.elements.priority.value,
       notes: todoForm.elements.notes.value,
+      projectId: Number(todoForm.elements.projectid.value),
       checklist: [],
     };
     formAction(todoFormInputs);

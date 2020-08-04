@@ -1,4 +1,12 @@
-const newTodoInstance = (title, description, dueDate, priority, notes, checklist) => {
+const newTodoInstance = (
+  title,
+  description,
+  dueDate,
+  priority,
+  notes,
+  projectId,
+  checklist,
+) => {
   const getTitle = () => title;
   const getAttributes = () => ({
     title,
@@ -6,6 +14,7 @@ const newTodoInstance = (title, description, dueDate, priority, notes, checklist
     dueDate,
     priority,
     notes,
+    projectId,
     checklist,
   });
 

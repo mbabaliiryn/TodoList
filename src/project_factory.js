@@ -1,3 +1,5 @@
+import todoFactory from './todo_factory';
+
 const newProjectInstance = (title, projectId, todos) => {
   todos = todos || [];
 
@@ -17,13 +19,41 @@ const newProjectInstance = (title, projectId, todos) => {
     return titles;
   };
 
+  const toJSON = () => ({
+    title: getTitle(),
+    id: getId(),
+    todos: todos.map(todo => todo.getAttributes()),
+  });
+
   return {
     getTitle,
     getId,
     getTodos,
     addTodo,
     getTodoTitles,
+    toJSON,
   };
 };
 
-export default newProjectInstance;
+const projectFromJSON = (({ title, id, todos }) => {
+  const todoInstances = todos.map(({
+    title,
+    description,
+    dueDate,
+    priority,
+    notes,
+    projectId,
+    checklist,
+  }) => todoFactory(
+    title,
+    description,
+    dueDate,
+    priority,
+    notes,
+    projectId,
+    checklist,
+  ));
+  return newProjectInstance(title, id, todoInstances);
+});
+
+export { newProjectInstance, projectFromJSON };

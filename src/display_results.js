@@ -1,7 +1,9 @@
+import { getAppData } from './data';
+
 /*
   temporary method to display lists of projects and todos
 */
-const getResultsSection = (projects) => {
+const createResultsSection = (projects) => {
   const listOfProjects = document.createElement('ul');
   listOfProjects.id = 'results';
   projects.forEach(project => {
@@ -21,4 +23,16 @@ const getResultsSection = (projects) => {
   return listOfProjects;
 };
 
-export default getResultsSection;
+const renderResults = () => {
+  const displaySection = document.getElementById('projects-data');
+  let results = document.getElementById('results');
+  if (results !== null) {
+    results.remove();
+  }
+  const { defaultProject, otherProjects } = getAppData();
+  const allProjects = [defaultProject].concat(otherProjects);
+  results = createResultsSection(allProjects);
+  displaySection.appendChild(results);
+};
+
+export default renderResults;
