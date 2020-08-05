@@ -1,6 +1,6 @@
 import todoFactory from './todo_factory';
+import { newProjectInstance } from './project_factory';
 import { getAppData, storeAppData } from './data';
-import renderAppData from './display_results';
 
 const addNewTodoToProject = ({
   title,
@@ -30,7 +30,16 @@ const addNewTodoToProject = ({
   }
   project.addTodo(newTodo);
   storeAppData(projectLibrary);
-  renderAppData();
 };
 
-export default addNewTodoToProject;
+const createNewProject = ({
+  title,
+}) => {
+  const projects = getAppData();
+  const projectId = projects.otherProjects.length + 1;
+  const project = newProjectInstance(title, projectId);
+  projects.otherProjects.push(project);
+  storeAppData(projects);
+};
+
+export { addNewTodoToProject, createNewProject };

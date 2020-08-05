@@ -1,7 +1,8 @@
 import './styles/style.scss';
-import getNewTodoForm from './form_builder/todo_form';
 import { getAppData } from './data';
-import addNewTodoToProject from './methods';
+import getNewTodoForm from './form_builder/todo_form';
+import getProjectForm from './form_builder/project_form';
+import { addNewTodoToProject, createNewProject } from './methods';
 import render from './display_results';
 
 const contentTag = document.getElementById('content');
@@ -15,9 +16,11 @@ const currentProject = defaultProject;
 
 const formSection = document.createElement('section');
 formSection.id = 'form-section';
+contentTag.appendChild(formSection);
 const todoForm = getNewTodoForm(addNewTodoToProject, currentProject.getId());
 formSection.appendChild(todoForm);
-contentTag.appendChild(formSection);
+const projectForm = getProjectForm(createNewProject);
+formSection.appendChild(projectForm);
 
 // Temporary to display added todos and projects
 const displaySection = document.createElement('section');

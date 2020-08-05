@@ -4,17 +4,18 @@ import dueDateInput from './due_date_section';
 import priorityInput from './priority_section';
 import notesInput from './notes_section';
 import submitButton from './submit_section';
+import renderAppData from '../display_results';
 
 const getTodoForm = (formAction, projectId) => {
   const todoForm = document.createElement('form');
   todoForm.id = 'new-todo';
 
-  todoForm.appendChild(titleInput);
+  todoForm.appendChild(titleInput('todo'));
   todoForm.appendChild(descInput);
   todoForm.appendChild(dueDateInput);
   todoForm.appendChild(priorityInput);
   todoForm.appendChild(notesInput);
-  todoForm.appendChild(submitButton);
+  todoForm.appendChild(submitButton('todo'));
 
   const projectIdInput = document.createElement('input');
   projectIdInput.type = 'hidden';
@@ -37,6 +38,7 @@ const getTodoForm = (formAction, projectId) => {
     };
     formAction(todoFormInputs);
     todoForm.reset();
+    renderAppData();
   });
 
   return todoForm;
