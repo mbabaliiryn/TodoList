@@ -8,6 +8,10 @@ const newTodoInstance = (
   checklist,
 ) => {
   const getTitle = () => title;
+  const getDescription = () => description;
+  const getDueDate = () => dueDate;
+  const getPriority = () => priority;
+  const getNotes = () => notes;
   const getAttributes = () => ({
     title,
     description,
@@ -21,6 +25,10 @@ const newTodoInstance = (
   return {
     getAttributes,
     getTitle,
+    getDescription,
+    getDueDate,
+    getPriority,
+    getNotes,
   };
 };
 

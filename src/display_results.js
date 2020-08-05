@@ -16,7 +16,26 @@ const createResultsSection = (projects) => {
     pItem.appendChild(listOfTodos);
     project.getTodos().forEach(todo => {
       const todoDetails = document.createElement('li');
-      todoDetails.textContent = JSON.stringify(todo.getAttributes());
+      const todoTitle = document.createElement('p');
+      todoTitle.classList.add('todo-title');
+      todoTitle.textContent = todo.getTitle();
+      todoDetails.appendChild(todoTitle);
+      const todoDescription = document.createElement('p');
+      todoDescription.classList.add('todo-description');
+      todoDescription.textContent = todo.getDescription();
+      todoDetails.appendChild(todoDescription);
+      const todoDueDate = document.createElement('p');
+      todoDueDate.classList.add('todo-duedate');
+      todoDueDate.textContent = todo.getDueDate();
+      todoDetails.appendChild(todoDueDate);
+      const todoPriority = document.createElement('p');
+      todoPriority.classList.add('todo-priority');
+      todoPriority.textContent = todo.getPriority();
+      todoDetails.appendChild(todoPriority);
+      const todoNotes = document.createElement('p');
+      todoNotes.classList.add('todo-notes');
+      todoNotes.textContent = todo.getNotes();
+      todoDetails.appendChild(todoNotes);
       listOfTodos.appendChild(todoDetails);
     });
   });
