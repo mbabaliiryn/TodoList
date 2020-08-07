@@ -20,14 +20,47 @@ formSection.id = 'form-section';
 contentTag.appendChild(formSection);
 const todoForm = getNewTodoForm(addNewTodoToProject, currentProject.getId());
 formSection.appendChild(todoForm);
-const projectForm = getProjectForm(createNewProject);
-formSection.appendChild(projectForm);
 
 // Temporary to display added todos and projects
 const displaySection = document.createElement('section');
 displaySection.id = 'projects-data';
-const heading = document.createElement('h3');
+const heading = document.createElement('h2');
 heading.textContent = 'Projects and Todos';
 displaySection.appendChild(heading);
 contentTag.appendChild(displaySection);
+
+const addProjectButton = document.createElement('button');
+addProjectButton.id = 'add-project-btn';
+addProjectButton.textContent = 'Add Project';
+displaySection.appendChild(addProjectButton);
+
+const newProjectFormModal = document.createElement('div');
+newProjectFormModal.id = 'add-project-form-box';
+newProjectFormModal.className = 'modal';
+displaySection.appendChild(newProjectFormModal);
+
+const modalContent = document.createElement('div');
+modalContent.className = 'modal-content';
+newProjectFormModal.appendChild(modalContent);
+
+const modalHeader = document.createElement('div');
+modalHeader.className = 'modal-header';
+modalContent.appendChild(modalHeader);
+const closeBtn = document.createElement('span');
+closeBtn.className = 'close';
+closeBtn.innerHTML = '&times;';
+modalHeader.appendChild(closeBtn);
+const headerText = document.createElement('h2');
+headerText.textContent = 'Enter Project Name';
+modalHeader.appendChild(headerText);
+
+const modalBody = document.createElement('div');
+modalContent.appendChild(modalBody);
+modalBody.className = 'modal-body';
+const newProjectForm = getProjectForm(createNewProject);
+modalBody.appendChild(newProjectForm);
+
+addProjectButton.onclick = () => { newProjectFormModal.style.display = 'block'; };
+closeBtn.onclick = () => { newProjectFormModal.style.display = 'none'; };
+
 render();
