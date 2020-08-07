@@ -1,3 +1,4 @@
+import 'accordion/src/accordion.css';
 import './styles/style.scss';
 import { getAppData } from './data';
 import getNewTodoForm from './form_builder/todo_form';
