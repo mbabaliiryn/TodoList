@@ -26,7 +26,7 @@ const createTodoContent = (todo) => {
   priority.classList.add('todo-priority');
   priority.textContent = `This task has ${todo.getPriority()} priority`;
   const deleteTodoButton = document.createElement('button');
-  deleteTodoButton.id = 'delete-project-btn';
+  deleteTodoButton.id = 'delete-todo-btn';
   deleteTodoButton.textContent = 'Delete Todo';
   todoContent.appendChild(description);
   todoContent.appendChild(dueDate);
@@ -56,6 +56,13 @@ const createProjectTitle = (project) => {
 const createProjectContent = (project) => {
   const projectTodos = document.createElement('div');
   projectTodos.classList.add('project-todos', 'accordion');
+  const deleteProjectButton = document.createElement('button');
+  deleteProjectButton.className = 'delete-project-btn';
+  deleteProjectButton.textContent = 'Delete Todo';
+  const projectControls = document.createElement('div');
+  projectControls.classList.add('project-controls');
+  projectControls.appendChild(deleteProjectButton);
+  projectTodos.appendChild(projectControls);
   const todos = project.getTodos();
   todos.forEach(todo => {
     const todoDiv = createTodoDiv(todo);
