@@ -25,10 +25,14 @@ const createTodoContent = (todo) => {
   const priority = document.createElement('p');
   priority.classList.add('todo-priority');
   priority.textContent = `This task has ${todo.getPriority()} priority`;
+  const deleteTodoButton = document.createElement('button');
+  deleteTodoButton.id = 'delete-project-btn';
+  deleteTodoButton.textContent = 'Delete Todo';
   todoContent.appendChild(description);
   todoContent.appendChild(dueDate);
   todoContent.appendChild(priority);
   todoContent.appendChild(notes);
+  todoContent.appendChild(deleteTodoButton);
   return todoContent;
 };
 
