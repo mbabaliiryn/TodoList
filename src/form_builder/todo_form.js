@@ -4,26 +4,20 @@ import dueDateInput from './due_date_section';
 import priorityInput from './priority_section';
 import notesInput from './notes_section';
 import submitButton from './submit_section';
+import projectInput from './select_project_section';
 import renderAppData from '../display_results';
 
-const getTodoForm = (formAction, projectId) => {
+const getTodoForm = (formAction) => {
   const todoForm = document.createElement('form');
   todoForm.id = 'new-todo';
 
   todoForm.appendChild(titleInput('todo'));
+  todoForm.appendChild(projectInput);
   todoForm.appendChild(descInput);
   todoForm.appendChild(dueDateInput);
   todoForm.appendChild(priorityInput);
   todoForm.appendChild(notesInput);
   todoForm.appendChild(submitButton('todo'));
-
-  const projectIdInput = document.createElement('input');
-  projectIdInput.type = 'hidden';
-  projectIdInput.id = 'todo-pid-input';
-  projectIdInput.name = 'projectid';
-  projectIdInput.value = Number(projectId).toString();
-
-  todoForm.appendChild(projectIdInput);
 
   todoForm.addEventListener('submit', (event) => {
     event.preventDefault();

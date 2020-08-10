@@ -17,7 +17,7 @@ const getProjectForm = (formAction) => {
     formAction(projectFormInputs);
     projectForm.reset();
     const formModalBox = document.getElementById('add-project-form-box');
-    formModalBox.style.display = 'none';
+    formModalBox.classList.toggle('show-form');
     renderAppData();
   });
 

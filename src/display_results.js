@@ -1,7 +1,6 @@
 // eslint-disable-next-line import/extensions
 import Accordion from 'accordion/src/accordion.mjs';
 import { getAppData } from './data';
-import addObjectFormButton from './add_form';
 
 const createTodoTitle = (todo) => {
   const todoTitle = document.createElement('p');
@@ -47,11 +46,6 @@ const createProjectTitle = (project) => {
   projectTitle.classList.add('project-title');
   projectTitle.textContent = project.getTitle();
   projectHeader.appendChild(projectTitle);
-  const projectControls = document.createElement('div');
-  const { addButton, formModal } = addObjectFormButton(project.getId());
-  projectControls.appendChild(addButton);
-  projectControls.appendChild(formModal);
-  projectHeader.appendChild(projectControls);
   return projectHeader;
 };
 
