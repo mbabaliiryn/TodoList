@@ -28,11 +28,15 @@ const createTodoContent = (todo) => {
   const deleteTodoButton = document.createElement('button');
   deleteTodoButton.id = 'delete-todo-btn';
   deleteTodoButton.textContent = 'Delete Todo';
+  const editTodoButton = document.createElement('button');
+  editTodoButton.id = 'edit-todo-btn';
+  editTodoButton.textContent = 'Edit Todo';
   todoContent.appendChild(description);
   todoContent.appendChild(dueDate);
   todoContent.appendChild(priority);
   todoContent.appendChild(notes);
   todoContent.appendChild(deleteTodoButton);
+  todoContent.appendChild(editTodoButton);
   return todoContent;
 };
 
