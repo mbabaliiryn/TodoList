@@ -5,10 +5,7 @@
   border: none;
 }
 
-#projects-data {
-  text-align: center;
-  border: none;
-}
+
 
 .project {
   font-size: 1.2rem;
@@ -20,4 +17,10 @@
   font-weight: 100;
   background-color: darkolivegreen;
   color: black;
+}
+
+#project-list,
+.project,
+.todo {
+  width: 500px;
 }

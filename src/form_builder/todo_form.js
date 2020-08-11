@@ -32,6 +32,8 @@ const getTodoForm = (formAction) => {
     };
     formAction(todoFormInputs);
     todoForm.reset();
+    const formModalBox = document.getElementById('add-todo-form-box');
+    formModalBox.classList.toggle('show-form');
     renderAppData();
   });
 

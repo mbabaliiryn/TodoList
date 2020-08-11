@@ -22,7 +22,7 @@ const getAddTodoModal = () => {
   const closeBtn = document.createElement('span');
   closeBtn.className = 'close';
   closeBtn.innerHTML = '&times;';
-  closeBtn.onclick = () => { addTodoModal.style.display = 'none'; };
+  closeBtn.onclick = () => { addTodoModal.classList.toggle('show-form'); };
   modalHeader.appendChild(closeBtn);
   const headerText = document.createElement('h2');
   headerText.textContent = 'Enter Todo Details';
@@ -44,7 +44,7 @@ const getAddTodoControls = () => {
   todoControls.appendChild(addTodoButton);
   const addTodoModal = getAddTodoModal();
   todoControls.appendChild(addTodoModal);
-  addTodoButton.onclick = () => { addTodoModal.style.display = 'block'; };
+  addTodoButton.onclick = () => { addTodoModal.classList.toggle('show-form'); };
   return todoControls;
 };
 
