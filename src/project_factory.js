@@ -43,6 +43,7 @@ const projectFromJSON = (({ title, id, todos }) => {
     priority,
     notes,
     projectId,
+    todoId,
     checklist,
   }) => todoFactory(
     title,
@@ -51,6 +52,7 @@ const projectFromJSON = (({ title, id, todos }) => {
     priority,
     notes,
     projectId,
+    todoId,
     checklist,
   ));
   return newProjectInstance(title, id, todoInstances);

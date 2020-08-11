@@ -5,6 +5,7 @@ const newTodoInstance = (
   priority,
   notes,
   projectId,
+  todoId,
   checklist,
 ) => {
   const getTitle = () => title;
@@ -12,6 +13,8 @@ const newTodoInstance = (
   const getDueDate = () => dueDate;
   const getPriority = () => priority;
   const getNotes = () => notes;
+  const getProjectId = () => projectId;
+  const getTodoId = () => todoId;
   const getAttributes = () => ({
     title,
     description,
@@ -19,6 +22,7 @@ const newTodoInstance = (
     priority,
     notes,
     projectId,
+    todoId,
     checklist,
   });
 
@@ -29,6 +33,8 @@ const newTodoInstance = (
     getDueDate,
     getPriority,
     getNotes,
+    getProjectId,
+    getTodoId,
   };
 };
 

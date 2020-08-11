@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/extensions
 import Accordion from 'accordion/src/accordion.mjs';
 import { getAppData } from './data';
+import { deleteProject, deleteTodo } from './methods';
 
 const createTodoTitle = (todo) => {
   const todoTitle = document.createElement('p');
@@ -28,11 +29,13 @@ const createTodoContent = (todo) => {
   // buttons: edit and delete
   const deleteTodoButton = document.createElement('button');
   deleteTodoButton.className = 'delete-todo-btn';
-  // deleteTodoButton.setAttribute('data-id', todo.getId());
+  deleteTodoButton.setAttribute('data-todoid', todo.getTodoId());
+  deleteTodoButton.setAttribute('data-projectid', todo.getProjectId());
   deleteTodoButton.textContent = 'Delete Todo';
   const editTodoButton = document.createElement('button');
   editTodoButton.className = 'edit-todo-btn';
-  // editTodoButton.setAttribute('data-id', todo.getId());
+  editTodoButton.setAttribute('data-todoid', todo.getTodoId());
+  editTodoButton.setAttribute('data-projectid', todo.getProjectId());
   editTodoButton.textContent = 'Edit Todo';
 
   todoContent.appendChild(description);
@@ -50,6 +53,7 @@ const createTodoContent = (todo) => {
 const createTodoDiv = (todo) => {
   const todoDiv = document.createElement('div');
   todoDiv.classList.add('todo');
+  todoDiv.id = `project-${todo.getProjectId()}-todo-${todo.getTodoId()}`;
   todoDiv.appendChild(createTodoTitle(todo));
   todoDiv.appendChild(createTodoContent(todo));
   return todoDiv;
@@ -93,6 +97,7 @@ const createProjectContent = (project) => {
 const createProjectDiv = (project) => {
   const projectDiv = document.createElement('div');
   projectDiv.classList.add('project');
+  projectDiv.id = `project-${project.getId()}`;
   projectDiv.appendChild(createProjectTitle(project));
   projectDiv.appendChild(createProjectContent(project));
   return projectDiv;
@@ -119,6 +124,38 @@ const createAccordions = () => {
   }
 };
 
+const closeFold = (fold) => {
+  fold.open = false;
+};
+
+const openFold = (fold) => {
+  fold.open = true;
+};
+
+const deleteProjectFromUI = (projectId) => {
+  const projectDiv = document.getElementById(`project-${projectId}`);
+  const projectFold = Accordion.getFold(projectDiv);
+  const { accordion } = projectFold;
+  const foldIndex = accordion.folds.findIndex(fold => fold === projectFold);
+  accordion.folds.splice(foldIndex, 1);
+  projectDiv.remove();
+  setTimeout(closeFold, 200, projectFold);
+};
+
+
+const deleteTodoFromUI = (todoId, projectId) => {
+  const todoDiv = document.getElementById(`project-${projectId}-todo-${todoId}`);
+  const todoFold = Accordion.getFold(todoDiv);
+  const { accordion } = todoFold;
+  const { parentFold } = accordion;
+  setTimeout(closeFold, 200, todoFold);
+  const foldIndex = accordion.folds.findIndex(fold => fold === todoFold);
+  accordion.folds.splice(foldIndex, 1);
+  todoDiv.remove();
+  setTimeout(closeFold, 400, parentFold);
+  setTimeout(openFold, 600, parentFold);
+};
+
 const setupBtnEventListeners = () => {
   const app = document.getElementById('project-list');
   app.addEventListener('click', (event) => {
@@ -126,13 +163,15 @@ const setupBtnEventListeners = () => {
     if (btn) {
       switch (btn.className) {
         case 'delete-project-btn':
-          console.log(`Deleting project ${btn.dataset.id} ...`);
+          deleteProject(Number(btn.dataset.id));
+          deleteProjectFromUI(btn.dataset.id, btn);
           break;
         case 'delete-todo-btn':
-          console.log('Deleting todo ...');
+          deleteTodo(Number(btn.dataset.todoid), Number(btn.dataset.projectid));
+          deleteTodoFromUI(btn.dataset.todoid, btn.dataset.projectid);
           break;
         case 'edit-todo-btn':
-          console.log('Editting todo ...');
+          console.log(`Editing todo tid: ${btn.dataset.todoid} pid: ${btn.dataset.projectid} ...`);
           break;
         default:
           break;
@@ -140,6 +179,7 @@ const setupBtnEventListeners = () => {
     }
   });
 };
+
 
 const renderResults = () => {
   const displaySection = document.getElementById('projects-data');
