@@ -1,14 +1,7 @@
 import getTodoForm from './form_builder/todo_form';
 import { addNewTodoToProject } from './methods';
 
-const getAddTodoButton = () => {
-  const addTodoButton = document.createElement('button');
-  addTodoButton.id = 'add-todo-btn';
-  addTodoButton.textContent = 'Add Todo';
-  return addTodoButton;
-};
-
-const getAddTodoModal = () => {
+const getTodoModal = () => {
   const addTodoModal = document.createElement('div');
   addTodoModal.id = 'add-todo-form-box';
   addTodoModal.className = 'modal';
@@ -38,14 +31,4 @@ const getAddTodoModal = () => {
   return addTodoModal;
 };
 
-const getAddTodoControls = () => {
-  const todoControls = document.createElement('div');
-  const addTodoButton = getAddTodoButton();
-  todoControls.appendChild(addTodoButton);
-  const addTodoModal = getAddTodoModal();
-  todoControls.appendChild(addTodoModal);
-  addTodoButton.onclick = () => { addTodoModal.classList.toggle('show-form'); };
-  return todoControls;
-};
-
-export default getAddTodoControls;
+export default getTodoModal;

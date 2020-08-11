@@ -77,6 +77,10 @@ const deleteTodo = (todoId, projectId) => {
   storeAppData({ defaultProject, otherProjects });
 };
 
+const updateTodo = () => {
+
+};
+
 export {
   addNewTodoToProject,
   createNewProject,

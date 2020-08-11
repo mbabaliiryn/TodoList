@@ -73,17 +73,27 @@ const createProjectContent = (project) => {
   const projectTodos = document.createElement('div');
   projectTodos.classList.add('project-todos', 'accordion');
 
+  const projectControls = document.createElement('div');
+  projectControls.classList.add('project-controls');
+  const buttons = document.createElement('div');
+  projectControls.appendChild(buttons);
+  projectControls.appendChild(document.createElement('div'));
+  projectTodos.appendChild(projectControls);
+
+  // add todo button
+  const addTodoButton = document.createElement('button');
+  addTodoButton.className = 'add-todo-btn';
+  addTodoButton.setAttribute('data-id', project.getId());
+  addTodoButton.textContent = 'Add Todo';
+  buttons.appendChild(addTodoButton);
+
   // delete project button
   if (project.getId() !== 0) {
-    const projectControls = document.createElement('div');
-    projectControls.classList.add('project-controls');
     const deleteProjectButton = document.createElement('button');
     deleteProjectButton.className = 'delete-project-btn';
     deleteProjectButton.setAttribute('data-id', project.getId());
     deleteProjectButton.textContent = 'Delete Project';
-    projectControls.appendChild(deleteProjectButton);
-    projectControls.appendChild(document.createElement('div'));
-    projectTodos.appendChild(projectControls);
+    buttons.appendChild(deleteProjectButton);
   }
 
   const todos = project.getTodos();
@@ -164,11 +174,15 @@ const setupBtnEventListeners = () => {
       switch (btn.className) {
         case 'delete-project-btn':
           deleteProject(Number(btn.dataset.id));
-          deleteProjectFromUI(btn.dataset.id, btn);
+          deleteProjectFromUI(btn.dataset.id);
           break;
         case 'delete-todo-btn':
           deleteTodo(Number(btn.dataset.todoid), Number(btn.dataset.projectid));
           deleteTodoFromUI(btn.dataset.todoid, btn.dataset.projectid);
+          break;
+        case 'add-todo-btn':
+          document.getElementById('project-input').value = btn.dataset.id;
+          document.getElementById('add-todo-form-box').classList.toggle('show-form');
           break;
         case 'edit-todo-btn':
           console.log(`Editing todo tid: ${btn.dataset.todoid} pid: ${btn.dataset.projectid} ...`);
