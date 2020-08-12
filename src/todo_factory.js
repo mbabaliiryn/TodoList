@@ -26,6 +26,22 @@ const newTodoInstance = (
     checklist,
   });
 
+  const update = ({
+    newTitle,
+    newDescription,
+    newDueDate,
+    newPriority,
+    newNotes,
+    newChecklist,
+  }) => {
+    title = newTitle;
+    description = newDescription;
+    dueDate = newDueDate;
+    priority = newPriority;
+    notes = newNotes;
+    checklist = newChecklist;
+  };
+
   return {
     getAttributes,
     getTitle,
@@ -35,6 +51,7 @@ const newTodoInstance = (
     getNotes,
     getProjectId,
     getTodoId,
+    update,
   };
 };
 

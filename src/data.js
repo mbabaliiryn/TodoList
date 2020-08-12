@@ -26,4 +26,14 @@ const getAppData = () => {
   return data;
 };
 
-export { getAppData, storeAppData };
+const getTodo = (todoId, projectId) => {
+  const { defaultProject, otherProjects } = getAppData();
+  const project = projectId === 0
+    ? defaultProject
+    : otherProjects.find(project => project.getId() === projectId);
+  const todos = project.getTodos();
+  const todoToUpdate = todos.find(todo => todo.getTodoId() === todoId);
+  return todoToUpdate;
+};
+
+export { getAppData, storeAppData, getTodo };

@@ -2,6 +2,7 @@
 import Accordion from 'accordion/src/accordion.mjs';
 import { getAppData } from './data';
 import { deleteProject, deleteTodo } from './methods';
+import { addTodoBtnAction, editTodoBtnAction } from './button_action';
 
 const createTodoTitle = (todo) => {
   const todoTitle = document.createElement('p');
@@ -181,11 +182,10 @@ const setupBtnEventListeners = () => {
           deleteTodoFromUI(btn.dataset.todoid, btn.dataset.projectid);
           break;
         case 'add-todo-btn':
-          document.getElementById('project-input').value = btn.dataset.id;
-          document.getElementById('add-todo-form-box').classList.toggle('show-form');
+          addTodoBtnAction(Number(btn.dataset.id));
           break;
         case 'edit-todo-btn':
-          console.log(`Editing todo tid: ${btn.dataset.todoid} pid: ${btn.dataset.projectid} ...`);
+          editTodoBtnAction(Number(btn.dataset.todoid), Number(btn.dataset.projectid));
           break;
         default:
           break;

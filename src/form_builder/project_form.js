@@ -27,7 +27,7 @@ const getProjectForm = (formAction) => {
     // validateForm();
     formAction(projectFormInputs);
     projectForm.reset();
-    const formModalBox = document.getElementById('add-project-form-box');
+    const formModalBox = document.getElementById('form-box');
     formModalBox.classList.toggle('show-form');
     renderAppData();
   });

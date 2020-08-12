@@ -22,28 +22,45 @@ const addNewTodoToProject = ({
   priority,
   notes,
   projectId,
+  todoId,
   checklist,
 }) => {
   const projectLibrary = getAppData();
   const { defaultProject, otherProjects } = projectLibrary;
-  let project;
-  if (projectId === 0) {
-    project = defaultProject;
+  const project = projectId === 0
+    ? defaultProject
+    : otherProjects.find(project => project.getId() === projectId);
+  if (todoId === -1) {
+    todoId = nextTodoId(project);
+    const newTodo = todoFactory(
+      title,
+      description,
+      duedate,
+      priority,
+      notes,
+      projectId,
+      todoId,
+      checklist,
+    );
+    project.addTodo(newTodo);
   } else {
-    project = otherProjects.find(project => project.getId() === projectId);
+    const todos = project.getTodos();
+    const todoToUpdate = todos.find(todo => todo.getTodoId() === todoId);
+    const newTitle = title;
+    const newDescription = description;
+    const newDueDate = duedate;
+    const newPriority = priority;
+    const newNotes = notes;
+    const newChecklist = checklist;
+    todoToUpdate.update({
+      newTitle,
+      newDescription,
+      newDueDate,
+      newPriority,
+      newNotes,
+      newChecklist,
+    });
   }
-  const todoId = nextTodoId(project);
-  const newTodo = todoFactory(
-    title,
-    description,
-    duedate,
-    priority,
-    notes,
-    projectId,
-    todoId,
-    checklist,
-  );
-  project.addTodo(newTodo);
   storeAppData(projectLibrary);
 };
 
@@ -75,10 +92,6 @@ const deleteTodo = (todoId, projectId) => {
   const todoIndex = todos.findIndex(todo => todo.getTodoId() === todoId);
   todos.splice(todoIndex, 1);
   storeAppData({ defaultProject, otherProjects });
-};
-
-const updateTodo = () => {
-
 };
 
 export {
