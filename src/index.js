@@ -10,6 +10,8 @@ contentTag.appendChild(h1);
 
 const modalContainer = document.createElement('div');
 modalContainer.id = 'modal-box';
+modalContainer.appendChild(getModal('project'));
+modalContainer.appendChild(getModal('todo'));
 contentTag.appendChild(modalContainer);
 
 const displaySection = document.createElement('section');
@@ -24,8 +26,7 @@ addProjectButton.id = 'add-project-btn';
 addProjectButton.textContent = 'Add Project';
 projectControls.appendChild(addProjectButton);
 addProjectButton.onclick = () => {
-  modalContainer.appendChild(getModal('project'));
-  const modal = document.getElementById('form-box');
+  const modal = document.getElementById('project-form-box');
   modal.classList.toggle('show-form');
 };
 displaySection.appendChild(projectControls);

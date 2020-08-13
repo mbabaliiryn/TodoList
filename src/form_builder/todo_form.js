@@ -46,7 +46,7 @@ const getTodoForm = (formAction) => {
     };
     formAction(todoFormInputs);
     todoForm.reset();
-    const formModalBox = document.getElementById('form-box');
+    const formModalBox = document.getElementById('todo-form-box');
     formModalBox.classList.toggle('show-form');
     renderAppData();
   });
