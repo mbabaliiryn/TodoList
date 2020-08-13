@@ -9,48 +9,48 @@
 }
 
 #new-todo {
-    font-size: 1.5rem;
-    color: rgb(157, 16, 212);
-    margin-left: 10px;
-  }
-  
-  #todo-title-input {
-    margin-bottom: 10px;
-  }
-  
-  #todo-desc-input {
-    margin-bottom: 10px;
-  }
-  
-  #todo-duedate-input {
-    margin-bottom: 10px;
-  }
-  
-  fieldset {
-    width: 30%;
-    margin: 0 auto;
-  }
-  
-  legend {
-    text-align: center;
-  }
-  
-  textarea {
-    margin-top: 30px;
-  }
+  font-size: 1.5rem;
+  color: rgb(157, 16, 212);
+  margin-left: 10px;
+}
+
+#todo-title-input {
+  margin-bottom: 10px;
+}
+
+#todo-desc-input {
+  margin-bottom: 10px;
+}
+
+#todo-duedate-input {
+  margin-bottom: 10px;
+}
+
+fieldset {
+  width: 30%;
+  margin: 0 auto;
+}
+
+legend {
+  text-align: center;
+}
+
+textarea {
+  margin-top: 30px;
+}
 
 input[type="submit"] {
-    font-size: 1.3rem;
-    background-color: green;
-    border: none;
-    color: brown;
-  }
+  font-size: 1.3rem;
+  background-color: green;
+  border: none;
+  color: brown;
+}
 
-  #results p {
-    font-size: 1.3rem;
-    color: blueviolet;
-  }
+#results p {
+  font-size: 1.3rem;
+  color: blueviolet;
+}
 
-  #content {
-    background-color: rgb(224, 220, 220);
-  }
+#content {
+  background-color: rgb(224, 220, 220);
+}
