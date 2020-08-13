@@ -17,7 +17,7 @@ The project  allow users to create and delete projects, create, edit and delete 
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://optimistic-volhard-bc7791.netlify.app/)
 
 
 ## Getting Started
