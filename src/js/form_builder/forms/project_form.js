@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
-import titleInput from './title_section';
-import submitButton from './submit_section';
-import renderAppData from '../display_results';
+import titleInput from '../components/title_section';
+import submitButton from '../components/submit_section';
+import renderAppData from '../../display/display_results';
+import { openProjectTab } from '../../display/change_dom';
 
 // const validateForm = () => {
 //   const projectFormInputs = document.forms['new-project'].title.value;
@@ -25,11 +26,12 @@ const getProjectForm = (formAction) => {
       title: projectForm.elements.title.value,
     };
     // validateForm();
-    formAction(projectFormInputs);
+    const project = formAction(projectFormInputs);
     projectForm.reset();
     const formModalBox = document.getElementById('project-form-box');
     formModalBox.classList.toggle('show-form');
     renderAppData();
+    openProjectTab(project.getId());
   });
 
   return projectForm;

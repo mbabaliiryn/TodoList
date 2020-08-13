@@ -1,10 +1,11 @@
-import titleInput from './title_section';
-import descInput from './description_section';
-import dueDateInput from './due_date_section';
-import priorityInput from './priority_section';
-import notesInput from './notes_section';
-import submitButton from './submit_section';
-import renderAppData from '../display_results';
+import titleInput from '../components/title_section';
+import descInput from '../components/description_section';
+import dueDateInput from '../components/due_date_section';
+import priorityInput from '../components/priority_section';
+import notesInput from '../components/notes_section';
+import submitButton from '../components/submit_section';
+import renderAppData from '../../display/display_results';
+import { openTodoTab } from '../../display/change_dom';
 
 const getTodoForm = (formAction) => {
   const todoForm = document.createElement('form');
@@ -44,11 +45,12 @@ const getTodoForm = (formAction) => {
       todoId: Number(todoForm.elements.todoid.value),
       checklist: [],
     };
-    formAction(todoFormInputs);
+    const todo = formAction(todoFormInputs);
     todoForm.reset();
     const formModalBox = document.getElementById('todo-form-box');
     formModalBox.classList.toggle('show-form');
     renderAppData();
+    openTodoTab(todo.getTodoId(), todo.getProjectId());
   });
 
   return todoForm;

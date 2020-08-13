@@ -1,6 +1,6 @@
-import todoFactory from './todo_factory';
-import { newProjectInstance } from './project_factory';
-import { getAppData, storeAppData } from './data';
+import todoFactory from '../models/todo_factory';
+import { newProjectInstance } from '../models/project_factory';
+import { getAppData, storeAppData } from '../models/data';
 
 const nextTodoId = (project) => {
   const todos = project.getTodos();
@@ -25,6 +25,7 @@ const addNewTodoToProject = ({
   todoId,
   checklist,
 }) => {
+  let todo;
   const projectLibrary = getAppData();
   const { defaultProject, otherProjects } = projectLibrary;
   const project = projectId === 0
@@ -43,6 +44,7 @@ const addNewTodoToProject = ({
       checklist,
     );
     project.addTodo(newTodo);
+    todo = newTodo;
   } else {
     const todos = project.getTodos();
     const todoToUpdate = todos.find(todo => todo.getTodoId() === todoId);
@@ -60,8 +62,10 @@ const addNewTodoToProject = ({
       newNotes,
       newChecklist,
     });
+    todo = todoToUpdate;
   }
   storeAppData(projectLibrary);
+  return todo;
 };
 
 const createNewProject = ({
@@ -72,31 +76,10 @@ const createNewProject = ({
   const project = newProjectInstance(title, projectId);
   projects.otherProjects.push(project);
   storeAppData(projects);
-};
-
-const deleteProject = (projectId) => {
-  if (projectId !== 0) {
-    const { defaultProject, otherProjects } = getAppData();
-    const projectIndex = otherProjects.findIndex(project => project.getId() === projectId);
-    otherProjects.splice(projectIndex, 1);
-    storeAppData({ defaultProject, otherProjects });
-  }
-};
-
-const deleteTodo = (todoId, projectId) => {
-  const { defaultProject, otherProjects } = getAppData();
-  const project = projectId === 0
-    ? defaultProject
-    : otherProjects.find(project => project.getId() === projectId);
-  const todos = project.getTodos();
-  const todoIndex = todos.findIndex(todo => todo.getTodoId() === todoId);
-  todos.splice(todoIndex, 1);
-  storeAppData({ defaultProject, otherProjects });
+  return project;
 };
 
 export {
   addNewTodoToProject,
   createNewProject,
-  deleteProject,
-  deleteTodo,
 };

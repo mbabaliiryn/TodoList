@@ -1,7 +1,7 @@
 import 'accordion/src/accordion.css';
-import './styles/style.scss';
-import getModal from './modal';
-import render from './display_results';
+import '../css/style.scss';
+import getModal from './form_builder/modal';
+import render from './display/display_results';
 
 const contentTag = document.getElementById('content');
 const h1 = document.createElement('h1');

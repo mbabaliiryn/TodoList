@@ -1,5 +1,5 @@
-import getTodoForm from './form_builder/todo_form';
-import getProjectForm from './form_builder/project_form';
+import getTodoForm from './forms/todo_form';
+import getProjectForm from './forms/project_form';
 import { addNewTodoToProject, createNewProject } from './methods';
 
 

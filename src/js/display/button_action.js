@@ -1,4 +1,4 @@
-import { getTodo } from './data';
+import { getTodo } from '../models/data';
 
 const addTodoBtnAction = (projectId) => {
   document.forms['new-todo'].querySelector('#todo-title-input').value = '';
