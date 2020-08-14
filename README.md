@@ -2,18 +2,24 @@
 
 # TodoList App (JavaScript)
 
-> This a TodoList app that allow users to create and delete projects, create, edit and delete todos.
+![Demo Gif](docs/DEMO.gif)
 
-![Screenshot from 2020-08-13 14-06-32](https://user-images.githubusercontent.com/44978186/90127697-43b07400-dd6e-11ea-92de-b0ce0a3d4699.png)
+> A __TodoList__ app that allow users to create, edit and delete tasks, which organized into projects.
 
-The project  allow users to create and delete projects, create, edit and delete todos
+![Screenshot](docs/Screenshot.png)
+
+The organization of _projects_ and _todos_ is in the form of nested accordion style lists. Expand any project tab, to reveal it's tasks as well as buttons to add tasks to the project and delete the projects itself. Expand each of the revealed _todo_ tabs to edit or delete it.
 
 ## Built With
 
 ## Major languages,
-- JAVASCRIPT
-- CSS
-- HTML
+- JavaScript
+- HTML, CSS
+
+## Dependencies and tools
+- [Accordion](https://www.npmjs.com/package/accordion)
+- npm
+- webpack
 
 ## Live Demo
 
@@ -21,11 +27,12 @@ The project  allow users to create and delete projects, create, edit and delete 
 
 
 ## Getting Started
-- Clone the repository to your local machine
-- Run `npm install` to install all the required depencies
-- Run `npm start` to view the project from the browser
-- Click an Miscellenous Tasks to add a todo
-
+- Clone this repository (switch to the `feature` branch).
+- Run `npm install`.
+- Run `npm run start` to launch the project in the browser
+- Click on any project tab to reveal it's included tasks and the `add task` and `delete project` buttons. 
+- Click on the header again to close it or
+- Click on any task to reveal it's details and the `delete task` and `edit task` buttons.
 
 ## Authors
 
