@@ -1,56 +1,41 @@
-#form-section {
-  text-align: center;
+$low-color: rgb(33, 136, 33);
+$medium-color: rgb(197, 197, 50);
+$high-color: crimson;
+$blue: rgb(30, 30, 184);
 
-  form {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 5px;
+form {
+  margin-top: 1.5rem;
+
+  section,
+  fieldset,
+  textarea,
+  input {
+    margin-bottom: 0.75rem;
+    // width: 500px;
+    // margin: 0.75rem auto;
   }
-}
 
-#new-todo {
-  font-size: 1.5rem;
-  color: rgb(157, 16, 212);
-  margin-left: 10px;
-}
+  input[type=text],
+  input[type=submit],
+  textarea,
+  fieldset {
+    width: 95%;
+  }
 
-#todo-title-input {
-  margin-bottom: 10px;
-}
+  label,
+  legend {
+    color: $blue;
+  }
 
-#todo-desc-input {
-  margin-bottom: 10px;
-}
+  label[for=todo-low-priority] {
+    color: $low-color;
+  }
 
-#todo-duedate-input {
-  margin-bottom: 10px;
-}
+  label[for=todo-medium-priority] {
+    color: $medium-color;
+  }
 
-fieldset {
-  width: 30%;
-  margin: 0 auto;
-}
-
-legend {
-  text-align: center;
-}
-
-textarea {
-  margin-top: 30px;
-}
-
-input[type="submit"] {
-  font-size: 1.3rem;
-  background-color: green;
-  border: none;
-  color: brown;
-}
-
-#results p {
-  font-size: 1.3rem;
-  color: blueviolet;
-}
-
-#content {
-  background-color: rgb(224, 220, 220);
+  label[for=todo-high-priority] {
+    color: $high-color;
+  }
 }

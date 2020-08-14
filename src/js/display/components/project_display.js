@@ -2,6 +2,7 @@ import createTodoDiv from './todo_display';
 
 const createProjectTitle = (project) => {
   const projectHeader = document.createElement('div');
+  projectHeader.className = 'project-header';
   const projectTitle = document.createElement('span');
   projectTitle.classList.add('project-title');
   projectTitle.textContent = project.getTitle();
@@ -15,8 +16,9 @@ const createProjectContent = (project) => {
   projectTodos.classList.add('project-todos', 'accordion');
 
   const projectControls = document.createElement('div');
-  projectControls.classList.add('project-controls');
+  projectControls.className = 'project-controls';
   const buttons = document.createElement('div');
+  buttons.className = 'buttons';
   projectControls.appendChild(buttons);
   projectControls.appendChild(document.createElement('div'));
   projectTodos.appendChild(projectControls);

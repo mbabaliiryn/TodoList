@@ -1,8 +1,17 @@
 const createTodoTitle = (todo) => {
-  const todoTitle = document.createElement('p');
+  const todoHeader = document.createElement('div');
+  todoHeader.className = 'todo-header';
+  const todoTitle = document.createElement('span');
   todoTitle.classList.add('todo-title');
   todoTitle.textContent = todo.getTitle();
-  return todoTitle;
+  todoHeader.appendChild(todoTitle);
+  return todoHeader;
+};
+
+const insertLineBreaks = (container, num) => {
+  for (let i = 0; i < num; i += 1) {
+    container.appendChild(document.createElement('br'));
+  }
 };
 
 const createTodoContent = (todo) => {
@@ -13,13 +22,14 @@ const createTodoContent = (todo) => {
   description.textContent = todo.getDescription();
   const dueDate = document.createElement('p');
   dueDate.classList.add('todo-duedate');
-  dueDate.textContent = `Due on ${todo.getDueDate()}`;
+  dueDate.innerHTML = `Due on <span class="date">${todo.getDueDate()}</span>`;
   const notes = document.createElement('p');
-  notes.classList.add('todo-notes');
-  notes.textContent = todo.getNotes();
   const priority = document.createElement('p');
   priority.classList.add('todo-priority');
-  priority.textContent = `This task has ${todo.getPriority()} priority`;
+  priority.innerHTML = `
+  This task has <span class="${todo.getPriority()}">${todo.getPriority()}</span> priority`;
+  notes.classList.add('todo-notes');
+  notes.textContent = todo.getNotes();
 
   const deleteTodoButton = document.createElement('button');
   deleteTodoButton.className = 'delete-todo-btn';
@@ -31,14 +41,18 @@ const createTodoContent = (todo) => {
   editTodoButton.setAttribute('data-todoid', todo.getTodoId());
   editTodoButton.setAttribute('data-projectid', todo.getProjectId());
   editTodoButton.textContent = 'Edit Todo';
+  const todoControls = document.createElement('div');
+  todoControls.className = 'todo-controls';
+  todoControls.appendChild(deleteTodoButton);
+  todoControls.appendChild(editTodoButton);
 
   todoContent.appendChild(description);
   todoContent.appendChild(dueDate);
   todoContent.appendChild(priority);
   todoContent.appendChild(notes);
+  todoContent.appendChild(todoControls);
 
-  todoContent.appendChild(deleteTodoButton);
-  todoContent.appendChild(editTodoButton);
+  insertLineBreaks(todoContent, 2);
 
   return todoContent;
 };

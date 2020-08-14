@@ -6,6 +6,7 @@ import render from './display/display_results';
 const contentTag = document.getElementById('content');
 const h1 = document.createElement('h1');
 h1.textContent = 'ToDo List App';
+h1.id = 'title-tag';
 contentTag.appendChild(h1);
 
 const modalContainer = document.createElement('div');
@@ -16,11 +17,9 @@ contentTag.appendChild(modalContainer);
 
 const displaySection = document.createElement('section');
 displaySection.id = 'projects-data';
-const heading = document.createElement('h2');
-heading.textContent = 'Projects and Todos';
-displaySection.appendChild(heading);
 
 const projectControls = document.createElement('div');
+projectControls.id = 'project-control';
 const addProjectButton = document.createElement('button');
 addProjectButton.id = 'add-project-btn';
 addProjectButton.textContent = 'Add Project';

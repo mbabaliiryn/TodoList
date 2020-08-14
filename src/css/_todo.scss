@@ -1,0 +1,83 @@
+$low-color: rgb(33, 136, 33);
+$medium-color: rgb(197, 197, 50);
+$high-color: crimson;
+
+.project-todos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todo-title {
+  font-size: 1.2rem;
+  color: blueviolet;
+  font-weight: bold;
+  display: table;
+}
+
+.todo {
+  width: 60%;
+  border-style: outset;
+  padding-bottom: 10px;
+
+  &.closed {
+    background-color: rgba(241, 5, 52, 0.6);
+    border-color: rgba(155, 8, 37, 0.6);
+    transition: background-color 0.5s ease-in-out;
+
+    .todo-title {
+      color: papayawhip;
+      margin: 0;
+    }
+  }
+
+  &.open {
+    background-color: rgba(255, 248, 220, 0.6);
+    border-color: rgba(190, 182, 150, 0.6);
+    transition: background-color 0.5s ease-in-out;
+
+    .todo-title {
+      font-size: 2rem;
+      color: lime;
+      margin: 0 auto;
+    }
+  }
+}
+
+.todo-header {
+  outline: none;
+}
+
+.todo-content {
+  margin-left: 1.5rem;
+}
+
+.todo-description,
+.todo-duedate,
+.todo-priority {
+  color: darkslategray;
+  font-size: 1.1em;
+  font-weight: 500;
+
+  .date {
+    color: #ff2400;
+  }
+
+  .low {
+    color: $low-color;
+  }
+
+  .medium {
+    color: $medium-color;
+  }
+
+  .high {
+    color: $high-color;
+  }
+}
+
+.todo-controls {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}

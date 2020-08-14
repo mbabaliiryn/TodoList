@@ -1,0 +1,57 @@
+.accordion {
+  margin-bottom: 20px;
+}
+
+#project-list,
+.project {
+  width: 100%;
+}
+
+.project-header {
+  outline: none;
+}
+
+.project-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  display: table;
+}
+
+.project {
+  border-style: outset;
+  padding-bottom: 10px;
+
+  &.closed {
+    background-color: rgba(223, 13, 223, 0.6);
+    border-color: rgba(170, 36, 170, 0.6);
+    transition: background-color 0.5s ease-in-out;
+
+    .project-title {
+      color: cyan;
+      margin: 0;
+    }
+  }
+
+  &.open {
+    background-color: rgba(255, 217, 0, 0.6);
+    border-color: rgba(177, 156, 39, 0.6);
+    transition: background-color 0.5s ease-in-out;
+
+    .project-title {
+      font-size: 2rem;
+      color: firebrick;
+      margin: 0 auto;
+    }
+  }
+}
+
+.project-controls {
+  width: 100%;
+
+  .buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+}

@@ -1,15 +1,8 @@
+@use 'reset';
+@use 'main';
 @use 'form';
-@use 'results';
-@use 'add_project';
-
-h1 {
-  color: rebeccapurple;
-}
-
-h3 {
-  color: chocolate;
-}
-
-// #content {
-//   text-align: center;
-// }
+@use 'project';
+@use 'todo';
+@use 'buttons';
+@use 'button_colors';
+@use 'modal';

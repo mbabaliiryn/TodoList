@@ -1,0 +1,29 @@
+$orange: rgba(236, 157, 9, 0.5);
+$orange-dark: rgba(155, 112, 33, 0.863);
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+#content {
+  background-color: rgba(245, 245, 245, 0.4);
+  width: 100%;
+  max-width: 800px;
+}
+
+#title-tag {
+  border-style: ridge;
+  margin-top: 0;
+  padding-left: 2rem;
+  padding-bottom: 1rem;
+  padding-top: 0.5rem;
+  background-color: $orange;
+  text-shadow: 2px 2px 2px $orange-dark;
+}
+
+#project-control {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}

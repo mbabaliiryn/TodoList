@@ -19,8 +19,10 @@ const getModal = (formType) => {
     const modalBox = document.getElementById(`${formType}-form-box`);
     modalBox.classList.toggle('show-form');
   };
+  const headerText = document.createElement('span');
+  headerText.className = 'form-title';
+  modalHeader.appendChild(headerText);
   modalHeader.appendChild(closeBtn);
-  const headerText = document.createElement('h2');
   const modalBody = document.createElement('div');
   modalBody.className = 'modal-body';
   let form;
@@ -36,7 +38,6 @@ const getModal = (formType) => {
     default:
       break;
   }
-  modalHeader.appendChild(headerText);
   modalBody.appendChild(form);
   modalContent.appendChild(modalHeader);
   modalContent.appendChild(modalBody);
