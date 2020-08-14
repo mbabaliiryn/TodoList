@@ -30,5 +30,12 @@ addProjectButton.onclick = () => {
 };
 displaySection.appendChild(projectControls);
 
+const attrib = document.createElement('div');
+attrib.className = 'image-attrib';
+attrib.innerHTML = `
+<span>Photo by <a href="https://unsplash.com/@seantookthese?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Sean O.</a> on <a href="https://unsplash.com/s/photos/beach?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+`;
+document.body.appendChild(attrib);
+
 contentTag.appendChild(displaySection);
 render();
