@@ -1,4 +1,5 @@
-import { newProjectInstance, projectFromJSON } from './project_factory';
+import { projectFromJSON } from './project_factory';
+import fakeAppData from './example_data';
 
 const storeAppData = ({ defaultProject, otherProjects }) => {
   const JSONifiedData = {};
@@ -9,20 +10,19 @@ const storeAppData = ({ defaultProject, otherProjects }) => {
 
 
 const getAppData = () => {
-  const defaultProjectLibrary = {
-    defaultProject: newProjectInstance('Miscellaneous Tasks', 0),
-    otherProjects: [],
-  };
+  const data = {};
+  let JSONifieddefaultProject;
+  let JSONifiedotherProjects;
   const JSONifiedData = JSON.parse(localStorage.getItem('projects'));
-  let data;
   if (!JSONifiedData) {
-    data = defaultProjectLibrary;
+    JSONifieddefaultProject = fakeAppData.defaultProject;
+    JSONifiedotherProjects = fakeAppData.otherProjects;
   } else {
-    data = {};
-    const { defaultProject, otherProjects } = JSONifiedData;
-    data.defaultProject = projectFromJSON(defaultProject);
-    data.otherProjects = otherProjects.map(JSONifiedProject => projectFromJSON(JSONifiedProject));
+    JSONifieddefaultProject = JSONifiedData.defaultProject;
+    JSONifiedotherProjects = JSONifiedData.otherProjects;
   }
+  data.defaultProject = projectFromJSON(JSONifieddefaultProject);
+  data.otherProjects = JSONifiedotherProjects.map(projectData => projectFromJSON(projectData));
   return data;
 };
 

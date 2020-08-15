@@ -2,7 +2,6 @@ import getTodoForm from './forms/todo_form';
 import getProjectForm from './forms/project_form';
 import { addNewTodoToProject, createNewProject } from './methods';
 
-
 const getModal = (formType) => {
   const modal = document.createElement('div');
   modal.id = `${formType}-form-box`;

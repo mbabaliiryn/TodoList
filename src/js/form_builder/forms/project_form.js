@@ -4,15 +4,6 @@ import submitButton from '../components/submit_section';
 import renderAppData from '../../display/display_results';
 import { openProjectTab } from '../../display/change_dom';
 
-// const validateForm = () => {
-//   const projectFormInputs = document.forms['new-project'].title.value;
-//   if (projectFormInputs === '') {
-//     alert('Title can not be empty');
-//     return false;
-//   }
-//   return projectFormInputs;
-// };
-
 const getProjectForm = (formAction) => {
   const projectForm = document.createElement('form');
   projectForm.id = 'new-project';
@@ -25,7 +16,6 @@ const getProjectForm = (formAction) => {
     const projectFormInputs = {
       title: projectForm.elements.title.value,
     };
-    // validateForm();
     const project = formAction(projectFormInputs);
     projectForm.reset();
     const formModalBox = document.getElementById('project-form-box');

@@ -2,7 +2,6 @@ import 'accordion/src/accordion.css';
 import '../css/style.scss';
 import getModal from './form_builder/modal';
 import render from './display/display_results';
-import setupFakeData from './examples/dummy';
 
 const contentTag = document.getElementById('content');
 const h1 = document.createElement('h1');
@@ -39,5 +38,4 @@ attrib.innerHTML = `
 document.body.appendChild(attrib);
 contentTag.appendChild(displaySection);
 
-setupFakeData();
 render();

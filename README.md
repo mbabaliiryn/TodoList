@@ -30,9 +30,14 @@ The organization of _projects_ and _todos_ is in the form of nested accordion st
 - Clone this repository (switch to the `feature` branch).
 - Run `npm install`.
 - Run `npm run start` to launch the project in the browser
-- Click on any project tab to reveal it's included tasks and the `add task` and `delete project` buttons. 
-- Click on the header again to close it or
-- Click on any task to reveal it's details and the `delete task` and `edit task` buttons.
+
+### Project Navigation
+
+- Click on any project tab (![#DF0CDF](https://via.placeholder.com/15/df0cdf/000000?text=+) `Pink color`) to reveal it's included tasks and the `add task` and `delete project` buttons.
+- Note, you cannot delete the _Miscellaneous Tasks_ project, which is the default project.
+- Click on the header (![#B22222](https://via.placeholder.com/15/b22222/000000?text=+) `Brown color`) again to close it or
+- Click on any task (![#F10534](https://via.placeholder.com/15/f10534/000000?text=+) `Orange color`) to reveal it's details and the `delete task` and `edit task` buttons.
+- Click on the Task Header (![#00FF00](https://via.placeholder.com/15/00ff00/000000?text=+) `Green color`) again to close it.
 
 ## Authors
 
