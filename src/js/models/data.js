@@ -1,5 +1,5 @@
 import { projectFromJSON } from './project_factory';
-import fakeAppData from './example_data';
+import { fakeData } from './example_data';
 
 const storeAppData = ({ defaultProject, otherProjects }) => {
   const JSONifiedData = {};
@@ -15,8 +15,8 @@ const getAppData = () => {
   let JSONifiedotherProjects;
   const JSONifiedData = JSON.parse(localStorage.getItem('projects'));
   if (!JSONifiedData) {
-    JSONifieddefaultProject = fakeAppData.defaultProject;
-    JSONifiedotherProjects = fakeAppData.otherProjects;
+    JSONifieddefaultProject = fakeData.defaultProject;
+    JSONifiedotherProjects = fakeData.otherProjects;
   } else {
     JSONifieddefaultProject = JSONifiedData.defaultProject;
     JSONifiedotherProjects = JSONifiedData.otherProjects;
