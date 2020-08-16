@@ -12,7 +12,6 @@
 }
 
 .project-title {
-  font-size: 1.3rem;
   font-weight: bold;
   padding: 0.5rem;
   display: table;
@@ -22,21 +21,27 @@
   border-style: outset;
   padding-bottom: 10px;
 
+  .project-title {
+    color: cyan;
+    margin: 0;
+    transition:
+      margin-left 1s ease-in-out 100ms,
+      color 1s ease-in-out 200ms;
+  }
+
   &.closed {
     background-color: rgba(223, 13, 223, 0.6);
     border-color: rgba(170, 36, 170, 0.6);
-    transition: background-color 0.5s ease-in-out;
 
     .project-title {
-      color: cyan;
-      margin: 0;
+      font-size: 1.3rem;
     }
   }
 
   &.open {
     background-color: rgba(255, 217, 0, 0.6);
     border-color: rgba(177, 156, 39, 0.6);
-    transition: background-color 0.5s ease-in-out;
+    transition: background-color 400ms ease-in-out 100ms;
 
     .project-title {
       font-size: 2rem;
