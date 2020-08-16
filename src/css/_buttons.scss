@@ -1,0 +1,47 @@
+$grey: rgb(65, 64, 64);
+
+#add-project-btn,
+.delete-project-btn,
+.add-todo-btn,
+.delete-todo-btn,
+.edit-todo-btn {
+  background-image:
+    linear-gradient(
+      to top left,
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.2) 30%,
+      rgba(0, 0, 0, 0)
+    );
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow:
+    inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+  color: $grey;
+  font-size: 1rem;
+  line-height: 2.5;
+  padding: 0 1.5rem;
+  text-shadow: 1px 1px 1px #111;
+}
+
+.add-todo-btn {
+  left: 3rem;
+}
+
+#add-project-btn:hover,
+.add-todo-btn:hover,
+.delete-project-btn:hover,
+.delete-todo-btn:hover,
+.edit-todo-btn:hover {
+  cursor: pointer;
+}
+
+#add-project-btn:active,
+.add-todo-btn:active,
+.delete-project-btn:active,
+.delete-todo-btn:active,
+.edit-todo-btn:active {
+  box-shadow:
+    inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+    inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}

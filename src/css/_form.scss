@@ -1,0 +1,41 @@
+$low-color: rgb(33, 136, 33);
+$medium-color: rgb(197, 197, 50);
+$high-color: crimson;
+$blue: rgb(30, 30, 184);
+
+form {
+  margin-top: 1.5rem;
+
+  section,
+  fieldset,
+  textarea,
+  input {
+    margin-bottom: 0.75rem;
+    // width: 500px;
+    // margin: 0.75rem auto;
+  }
+
+  input[type=text],
+  input[type=submit],
+  textarea,
+  fieldset {
+    width: 95%;
+  }
+
+  label,
+  legend {
+    color: $blue;
+  }
+
+  label[for=todo-low-priority] {
+    color: $low-color;
+  }
+
+  label[for=todo-medium-priority] {
+    color: $medium-color;
+  }
+
+  label[for=todo-high-priority] {
+    color: $high-color;
+  }
+}

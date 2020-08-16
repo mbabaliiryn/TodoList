@@ -1,0 +1,37 @@
+$green: #24db13;
+$green-dark: #42a039;
+$red: crimson;
+$red-dark: rgb(146, 37, 59);
+$blue: cyan;
+$blue-dark: rgb(37, 175, 175);
+
+#add-project-btn,
+.add-todo-btn {
+  background-color: $green;
+}
+
+.edit-todo-btn {
+  background-color: $blue;
+}
+
+.delete-project-btn,
+.delete-todo-btn {
+  background-color: $red;
+}
+
+#add-project-btn:hover,
+.add-todo-btn:hover {
+  background-color: $green-dark;
+  color: blanchedalmond;
+}
+
+.delete-project-btn:hover,
+.delete-todo-btn:hover {
+  background-color: $red-dark;
+  color: blanchedalmond;
+}
+
+.edit-todo-btn:hover {
+  background-color: $blue-dark;
+  color: blanchedalmond;
+}

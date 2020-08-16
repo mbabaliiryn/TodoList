@@ -1,65 +1,61 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# TodoList App (JavaScript)
 
-> One paragraph statement about the project.
+![Demo Gif](docs/DEMO.gif)
 
-![screenshot](./app_screenshot.png)
+> A __TodoList__ app that allow users to create, edit and delete tasks, which organized into projects.
 
-Additional description about the project and its features.
+![Screenshot](docs/Screenshot.png)
+
+The organization of _projects_ and _todos_ is in the form of nested accordion style lists. Expand any project tab, to reveal it's tasks as well as buttons to add tasks to the project and delete the projects itself. Expand each of the revealed _todo_ tabs to edit or delete it.
 
 ## Built With
 
-- Major languages,
-- frameworks,
-- technologies used
+## Major languages,
+- JavaScript
+- HTML, CSS
+
+## Dependencies and tools
+- [Accordion](https://www.npmjs.com/package/accordion)
+- npm
+- webpack
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://optimistic-volhard-bc7791.netlify.app/)
 
 
 ## Getting Started
+- Clone this repository (switch to the `feature` branch).
+- Run `npm install`.
+- Run `npm run start` to launch the project in the browser
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
+### Project Navigation
 
-
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-### Setup
-
-### Install
-
-### Usage
-
-### Run tests
-
-### Deployment
-
-
+- Click on any project tab (![#DF0CDF](https://via.placeholder.com/15/df0cdf/000000?text=+) `Pink color`) to reveal it's included tasks and the `add task` and `delete project` buttons.
+- Note, you cannot delete the _Miscellaneous Tasks_ project, which is the default project.
+- Click on the header (![#B22222](https://via.placeholder.com/15/b22222/000000?text=+) `Brown color`) again to close it or
+- Click on any task (![#F10534](https://via.placeholder.com/15/f10534/000000?text=+) `Orange color`) to reveal it's details and the `delete task` and `edit task` buttons.
+- Click on the Task Header (![#00FF00](https://via.placeholder.com/15/00ff00/000000?text=+) `Green color`) again to close it.
 
 ## Authors
 
-👤 **Author1**
+👤 **mbabaliiryn**
 
-- Github: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- Linkedin: [linkedin](https://linkedin.com/linkedinhandle)
+- Github: [mbabaliiryn](https://github.com/mbabaliiryn)
+- Linkedin: [mbabaliiryn](https://www.linkedin.com/in/mbabali-iryn/)
 
-👤 **Author2**
+👤 **Keshav Chakravarthy**
 
-- Github: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- Linkedin: [linkedin](https://linkedin.com/linkedinhandle)
+- Github: [@githubhandle](https://github.com/keshav-c)
+- Linkedin: [k3shavchakravarthy ](https://www.linkedin.com/in/k3shavchakravarthy/)
 
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](issues/).
+Feel free to check the [issues page](https://github.com/mbabaliiryn/TodoList/issues).
 
 ## Show your support
 
@@ -67,9 +63,11 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- Odin project
+- Accodion
+- npm
+- Microverse
+
 
 ## 📝 License
 
